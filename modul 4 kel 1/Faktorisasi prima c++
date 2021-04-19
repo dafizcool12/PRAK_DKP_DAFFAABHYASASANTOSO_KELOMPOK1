@@ -1,0 +1,64 @@
+#include <iostream>
+
+using namespace std;
+
+int p;
+
+class x{
+public:
+	void inp(){
+		cout << "Masukkan bilangan x :";
+	}
+	void oup(){
+		cout << "Faktorisasi prima dari x adalah berikut ini"<<endl;
+	}
+};
+
+int faktor(int x,int y){
+	p=0;
+	while (x % y == 0){
+		x=x/y;
+		p++;
+	}
+	return p;
+}
+
+int bagi(int x,int y){
+	while (x % y == 0){
+		x=x/y;
+	}
+	return x;	
+}
+
+int main(){
+	x mas;
+	int x, y;
+	y=2;
+	mas.inp();
+	cin >> x;
+	mas.oup();
+	
+	while (x>1){
+		if (faktor(x,y)==1){
+			cout << y;
+		}
+		else if (faktor(x,y)>1){
+			cout << y<<"^"<< faktor(x,y);
+		}
+		
+		if(faktor(x, y) == 0){
+			y++;
+			continue;
+		}
+		
+		x=bagi(x,y);
+		
+		if (x==1){
+			cout << endl;
+		}
+		else{
+			cout << " x ";
+		}
+		//y++;
+	}
+}
